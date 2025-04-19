@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday, Park Jongseong ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to top right, #ffe0e9, #ffd8cb);
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+    }
+
+    .card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(236, 176, 246, 0.95);
+      padding: 40px;
+      border-radius: 30px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      max-width: 600px;
+      text-align: center;
+      z-index: 10;
+    }
+
+    h1 {
+      color: #ffffff;
+      font-size: 32px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #555;
+      margin-top: 20px;
+      line-height: 1.6;
+    }
+
+    .heart {
+      font-size: 40px;
+      color: #ff4e6a;
+      margin-top: 20px;
+      animation: pulse 1.5s infinite;
+    }
+
+    /* Falling petals */
+    .petal {
+      position: fixed;
+      top: -10px;
+      width: 20px;
+      height: 20px;
+      background: pink;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: fall linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0); }
+      100% { transform: translateY(100vh) rotate(360deg); }
+    }
+
+    .audio-container {
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Romantic Card -->
+  <div class="card">
+    <h1>Happy Birthday, My Love, Jay 💖</h1>
+    <p>
+       I wish you are always happy, more successful at the age of 23. And then, hopefully I can meet you soon at this year's Enhypen concert. I really hope there will be an Enhypen concert in Indonesia again, precisely in Jakarta.
+    </p>
+    <div class="heart">💗</div>
+
+    <!-- Music Player in Card -->
+    <div class="audio-container">
+      <audio autoplay loop controls>
+        <source src="alwaysjay.mp3" type="audio/mpeg">
+        Browsermu tidak mendukung audio.
+      </audio>
+    </div>
+  </div>
+
+  <!-- Falling Petals -->
+  <script>
+    function createPetal() {
+      const petal = document.createElement('div');
+      petal.classList.add('petal');
+      petal.style.left = Math.random() * 100 + "vw";
+      petal.style.animationDuration = (5 + Math.random() * 5) + "s";
+      petal.style.opacity = Math.random();
+      document.body.appendChild(petal);
+
+      setTimeout(() => {
+        petal.remove();
+      }, 10000);
+    }
+
+    setInterval(createPetal, 300);
+  </script>
+
+</body>
+</html>
